@@ -11,7 +11,7 @@ int main(int ac, char** argv)
     std::string str;
     for (int k = 1; k < ac; k++) {
         str = argv[k];
-        for (int i = 0; i < str.size(); i++)
+        for (size_t i = 0; i < str.size(); i++)
             std::cout << (char)std::toupper(str[i]);
     }
 }
