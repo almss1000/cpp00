@@ -16,7 +16,11 @@ class Contact {
     void c(std::string value);
     void d(std::string value);
     void e(std::string value);
-    
+    std::string geta(void) const;
+    std::string getb(void) const;
+    std::string getc(void) const;
+    std::string getd(void) const;
+    std::string gete(void) const;
 };
 
 #endif

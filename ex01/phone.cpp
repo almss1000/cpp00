@@ -36,5 +36,10 @@ int main()
         std::getline(std::cin, value);
         phoneb.contacts[0].e(value);
     }
+    std::cout << phoneb.contacts[0].geta() << std::endl;
+    std::cout << phoneb.contacts[0].getb() << std::endl;
+    std::cout << phoneb.contacts[0].getc() << std::endl;
+    std::cout << phoneb.contacts[0].getd() << std::endl;
+    std::cout << phoneb.contacts[0].gete() << std::endl;
     return (0);
 }
