@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/goinfre/aalimous/cpp00/ex00",
-      "program": "/goinfre/aalimous/cpp00/ex00/build/Debug/outDebug",
+      "cwd": "/goinfre/aalimous/cpp00/ex01",
+      "program": "/goinfre/aalimous/cpp00/ex01/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

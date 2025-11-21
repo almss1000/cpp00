@@ -7,39 +7,83 @@ int check_command(std::string command)
     return (0);
 }
 
+int check_space(std::string str)
+{
+    for (size_t i = 0; i < str.length(); i++)
+    {
+        if (!std::isalnum(str[i]))
+        {
+            std::cerr << str[i] << std::endl;
+            return (0);
+        }
+    }
+    return (1);
+}
+
 int main()
 {
     PhoneBook phoneb;
     std::string command;
-    std::getline(std::cin, command);
-    if (!check_command(command))
+    std::string value[5];
+    std::string fields[5];
+    fields[0] = "first_name";
+    fields[1] = "last_name";
+    fields[2] = "nickname";
+    fields[3] = "phone_number";
+    fields[4] = "darkest_secret";
+    int count = 0;
+    while (1)
     {
-        std::cout << "error command" << std::endl;
-        return (0);
+        std::getline(std::cin, command);
+        if (std::cin.eof())
+        {
+            std::cout << "End of input reached (Ctrl+D detected)." << std::endl;
+            return (0);
+        }
+        if (!check_command(command))
+        {
+            std::cout << "error command" << std::endl;
+            continue;
+        }
+        if (command == "ADD")
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                while (1)
+                {
+                    std::cout << fields[i] << " : ";
+                    std::getline(std::cin, value[i]);
+                    if (value[i].empty() || !check_space(value[i]))
+                    {
+                        std::cout << fields[i] << "is empty\n";
+                        continue;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                    if (std::cin.eof())
+                    {
+                        std::cout << "End of input reached (Ctrl+D detected)." << std::endl;
+                        return (0);
+                    }
+                }
+            }
+            phoneb.contacts[count].a(value);
+            if (count == 7)
+                count = 0;
+            else
+                count++;
+        }
+        for (int i = 0; i < 8; i++)
+        {
+            std::cout << phoneb.contacts[i].geta() << std::endl;
+            std::cout << phoneb.contacts[i].getb() << std::endl;
+            std::cout << phoneb.contacts[i].getc() << std::endl;
+            std::cout << phoneb.contacts[i].getd() << std::endl;
+            std::cout << phoneb.contacts[i].gete() << std::endl;
+            std::cout << "--------------------------------------" << std::endl;
+        }
     }
-    if (command == "ADD")
-    {
-        std::string value;
-        std::cout << "first_name :";
-        std::getline(std::cin, value);
-        phoneb.contacts[0].a(value);
-        std::cout << "last_name :";
-        std::getline(std::cin, value);
-        phoneb.contacts[0].b(value);
-        std::cout << "nickname :";
-        std::getline(std::cin, value);
-        phoneb.contacts[0].c(value);
-        std::cout << "phone_number :";
-        std::getline(std::cin, value);
-        phoneb.contacts[0].d(value);
-        std::cout << "darkest_secret :";
-        std::getline(std::cin, value);
-        phoneb.contacts[0].e(value);
-    }
-    std::cout << phoneb.contacts[0].geta() << std::endl;
-    std::cout << phoneb.contacts[0].getb() << std::endl;
-    std::cout << phoneb.contacts[0].getc() << std::endl;
-    std::cout << phoneb.contacts[0].getd() << std::endl;
-    std::cout << phoneb.contacts[0].gete() << std::endl;
     return (0);
 }

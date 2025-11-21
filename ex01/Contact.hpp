@@ -11,11 +11,11 @@ class Contact {
     std::string phone_number;
     std::string darkest_secret;
     public:
-    void a(std::string value);
-    void b(std::string value);
-    void c(std::string value);
-    void d(std::string value);
-    void e(std::string value);
+    void a(std::string value[5]);
+    // void b(std::string value);
+    // void c(std::string value);
+    // void d(std::string value);
+    // void e(std::string value);
     std::string geta(void) const;
     std::string getb(void) const;
     std::string getc(void) const;

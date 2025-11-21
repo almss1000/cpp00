@@ -1,25 +1,14 @@
 #include "Contact.hpp"
 
 
-void Contact::a(std::string value)
+void Contact::a(std::string value[])
 {
-    this->first_name = value;
-}
-void Contact::b(std::string value)
-{
-    this->last_name = value;
-}
-void Contact::c(std::string value)
-{
-    this->nickname = value;
-}
-void Contact::d(std::string value)
-{
-    this->phone_number = value;
-}
-void Contact::e(std::string value)
-{
-    this->darkest_secret = value;
+    this->first_name = value[0];
+    this->last_name = value[1];
+    this->nickname = value[2];
+    this->phone_number = value[3];
+    this->darkest_secret = value[4];
+    
 }
 std::string Contact::geta(void) const
 {
