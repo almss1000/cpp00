@@ -4,7 +4,7 @@ CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 SRCS = phone.cpp contacts.cpp
 
-OBJS = $(SRCS: .cpp=.o)
+OBJS = $(SRCS:.cpp=.o)
 
 NAME = phonebook
 
@@ -17,7 +17,6 @@ clean :
 	rm -rf $(OBJS)
 
 fclean :
-	rm -rf $(NAME)
-re :
-	fclean all
+	rm -rf $(NAME) $(OBJS)
+re : fclean all
 .PHONY : all clean fclean re

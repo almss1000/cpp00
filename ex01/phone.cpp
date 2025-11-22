@@ -20,6 +20,20 @@ int check_space(std::string str)
     return (1);
 }
 
+void    get_contacts(PhoneBook phoneb, int print)
+{
+    std::cout << "index     |" << "first name|" << "last name |" << "nickname  " << std::endl;
+    if (print < 0)
+        return ;
+     for (int i = 0; i <= print; i++)
+        {
+            std::cout << i + 1 << "         |" << phoneb.contacts[i].geta() << "|";
+            std::cout << phoneb.contacts[i].getb() << "|";
+            std::cout << phoneb.contacts[i].getc() << std::endl;
+        }
+}
+  
+
 int main()
 {
     PhoneBook phoneb;
@@ -32,6 +46,7 @@ int main()
     fields[3] = "phone_number";
     fields[4] = "darkest_secret";
     int count = 0;
+    int print = -1;
     while (1)
     {
         std::getline(std::cin, command);
@@ -74,16 +89,15 @@ int main()
                 count = 0;
             else
                 count++;
+            if (print < 7)
+                print = count;
         }
-        for (int i = 0; i < 8; i++)
+        else if (command == "SEARCH")
         {
-            std::cout << phoneb.contacts[i].geta() << std::endl;
-            std::cout << phoneb.contacts[i].getb() << std::endl;
-            std::cout << phoneb.contacts[i].getc() << std::endl;
-            std::cout << phoneb.contacts[i].getd() << std::endl;
-            std::cout << phoneb.contacts[i].gete() << std::endl;
-            std::cout << "--------------------------------------" << std::endl;
+            get_contacts(phoneb, print);
         }
+        if (command == "EXIT")
+            return (0);
     }
     return (0);
 }
