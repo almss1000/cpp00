@@ -1,8 +1,8 @@
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
-
+  
 #include <iostream>
-
+                                                
 class Contact {
     private:
     std::string first_name;
@@ -17,6 +17,6 @@ class Contact {
     std::string getc(void) const;
     std::string getd(void) const;
     std::string gete(void) const;
-};
+};   
 
-#endif
+#endif 

@@ -1,4 +1,4 @@
-#include "Contact.hpp"
+#include "contact.hpp"
 
 void Contact::a(std::string value[])
 {
