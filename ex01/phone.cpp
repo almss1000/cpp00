@@ -19,20 +19,50 @@ int check_space(std::string str)
     }
     return (1);
 }
-
-void    get_contacts(PhoneBook phoneb, int print)
+int count_space(int index)
 {
-    std::cout << "index     |" << "first name|" << "last name |" << "nickname  " << std::endl;
-    if (print < 0)
-        return ;
-     for (int i = 0; i <= print; i++)
+    int count = 0;
+    if (index < 10)
+        return (1);
+    if (index >= 10)
+    {
+        while (index)
         {
-            std::cout << i + 1 << "         |" << phoneb.contacts[i].geta() << "|";
-            std::cout << phoneb.contacts[i].getb() << "|";
-            std::cout << phoneb.contacts[i].getc() << std::endl;
+            index = index / 10;
+            count++;
+            if (index == 0)
+                return (count);
         }
+    }
+    return (0);
 }
-  
+
+void get_contacts(PhoneBook phoneb, int print)
+{
+    std::string space = "";
+    std::cout << "     index|" << "first name|" << " last name|" << "  nickname" << std::endl;
+    if (print < 0)
+        return;
+    for (int i = 0; i <= print; i++)
+    {
+        std::cout << space.insert(0, 10 - count_space(i + 1), ' ') << i << "|" << phoneb.contacts[i].geta() << "|";
+        std::cout << phoneb.contacts[i].getb() << "|";
+        std::cout << phoneb.contacts[i].getc() << std::endl;
+        space = "";
+    }
+    std::string index = "";
+    while (1)
+    {
+        std::cout << "give me index your looking for :";
+        std::getline(std::cin, index);
+        if (std::cin.eof())
+        {
+            std::cout << "End of input reached (Ctrl+D detected)." << std::endl;
+            return ;
+        }
+        
+    }
+}
 
 int main()
 {
@@ -49,6 +79,7 @@ int main()
     int print = -1;
     while (1)
     {
+        std::cout << "enter commad :";
         std::getline(std::cin, command);
         if (std::cin.eof())
         {
@@ -86,14 +117,22 @@ int main()
             }
             phoneb.contacts[count].a(value);
             if (count == 7)
+            {
+                print = 7;
                 count = 0;
+            }
             else
                 count++;
             if (print < 7)
-                print = count;
+                print++;
         }
         else if (command == "SEARCH")
         {
+            if (print < 0)
+            {
+                std::cout << "phonebook is empty please add contacts" << std::endl;
+                continue;
+            }
             get_contacts(phoneb, print);
         }
         if (command == "EXIT")

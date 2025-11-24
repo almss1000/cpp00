@@ -17,7 +17,7 @@ std::string Contact::geta(void) const
         s = s.substr(0, 10);
     }
     if (s.length() < 10)
-        s.append(10 - s.length(), ' ');
+        s.insert(0, 10 - s.length(), ' ');
     return s;
 }
 std::string Contact::getb(void) const
@@ -29,7 +29,7 @@ std::string Contact::getb(void) const
         s = s.substr(0, 10);
     }
     if (s.length() < 10)
-        s.append(10 - s.length(), ' ');
+        s.insert(0, 10 - s.length(), ' ');
     return s;
 }
 std::string Contact::getc(void) const
@@ -41,7 +41,7 @@ std::string Contact::getc(void) const
         s = s.substr(0, 10);
     }
     if (s.length() < 10)
-        s.append(10 - s.length(), ' ');
+        s.insert(0, 10 - s.length(), ' ');
     return s;
 }
 std::string Contact::getd(void) const
