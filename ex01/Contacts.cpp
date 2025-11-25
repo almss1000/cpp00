@@ -1,6 +1,6 @@
-#include "contact.hpp"
+#include "Contact.hpp"
 
-void Contact::a(std::string value[])
+void Contact::set_field(std::string value[])
 {
     this->first_name = value[0];
     this->last_name = value[1];
@@ -44,11 +44,23 @@ std::string Contact::getc(void) const
         s.insert(0, 10 - s.length(), ' ');
     return s;
 }
-std::string Contact::getd(void) const
+std::string Contact::get_firstname(void) const
+{
+    return this->first_name;
+}
+std::string Contact::get_lastname(void) const
+{
+    return this->last_name;
+}
+std::string Contact::get_nickname(void) const
+{
+    return this->nickname;
+}
+std::string Contact::get_phone(void) const
 {
     return this->phone_number;
 }
-std::string Contact::gete(void) const
+std::string Contact::get_secret(void) const
 {
     return this->darkest_secret;
 }

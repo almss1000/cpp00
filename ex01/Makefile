@@ -2,8 +2,8 @@ CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98 
 
 # ==== FILES =====================================================
-SRCS    = phone.cpp contacts.cpp
-HEADERS = phonebook.hpp contact.hpp
+SRCS    = PhoneBook.cpp Contacts.cpp
+HEADERS = PhoneBook.hpp Contact.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 DEPS = $(HEADERS)
