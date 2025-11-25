@@ -71,13 +71,12 @@ void get_contacts(PhoneBook phoneb, int print, std::string fields[])
             std::cout << "End of input reached (Ctrl+D detected)." << std::endl;
             return;
         }
-        if(!isalldigit(geter))
+        if(!isalldigit(geter) || geter.length() > 1)
         {
-            std::cout << "index is number set again" << std::endl;
+            std::cout << "invalid index. Please enter a valid number between 0 and 7." << std::endl;
             continue;
         }
         index = atoi(geter.c_str());
-        std::cout << index << std::endl;
         if (index < 0 || index > print)
         {
             std::cout << "index not found" << std::endl;
