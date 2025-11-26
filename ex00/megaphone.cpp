@@ -14,4 +14,5 @@ int main(int ac, char** argv)
         for (size_t i = 0; i < str.size(); i++)
             std::cout << (char)std::toupper(str[i]);
     }
+    std::cout << std::endl;
 }
