@@ -19,23 +19,7 @@ int check_space(std::string str)
     }
     return (1);
 }
-int count_space(int index)
-{
-    int count = 0;
-    if (index < 10)
-        return (1);
-    if (index >= 10)
-    {
-        while (index)
-        {
-            index = index / 10;
-            count++;
-            if (index == 0)
-                return (count);
-        }
-    }
-    return (0);
-}
+
 int isalldigit(const std::string &s) {
     if (s.empty())
         return (0);
@@ -56,7 +40,7 @@ void get_contacts(PhoneBook phoneb, int print, std::string fields[])
         return;
     for (int i = 0; i <= print; i++)
     {
-        std::cout << space.insert(0, 10 - count_space(i + 1), ' ') << i << "|" << phoneb.contacts[i].geta() << "|";
+        std::cout << space.insert(0, 9, ' ') << i << "|" << phoneb.contacts[i].geta() << "|";
         std::cout << phoneb.contacts[i].getb() << "|";
         std::cout << phoneb.contacts[i].getc() << std::endl;
         space = "";
